@@ -1,7 +1,10 @@
-run:
-	gcc main.c
+run: libft all
+	./a.out
 
-all: libft
+all:
+	gcc main.c ft_printf.c -I./libft -L./libft -lft
+
+all2: libft
 	cp ./libft/libft.a libftprintf.a
 
 norminette:
@@ -10,10 +13,13 @@ norminette:
 	norminette main.c
 
 clean:
+	make -C ./libft clean
+	make -C ./libft fclean
 	rm -rf *.o
 
 fclean:	clean
 	rm -rf libftprintf.a
+	rm -rf a.out
 
 libft:
 	make -C ./libft
