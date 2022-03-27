@@ -2,7 +2,6 @@
 
 Fix old repo use unsigned long for pointer
 
-Write Makefile
 Makefile do on Main
 
 Separete function main and ft_printf for test
@@ -10,7 +9,6 @@ Separete function main and ft_printf for test
 Get Libft In Here First
 
 Run Simple Test on here
-
 Write Main
 Test Only %c %s Only
 Then %d %i 
