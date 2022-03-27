@@ -10,18 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdarg.h>
+#include "ft_printf.h"
 
-int ft_printf(const char *str, ...)
+static int	ft_printf_print_format(va_list args, const char *str)
 {
-	va_list	args;
+	return (0);
+}
+
+int	ft_printf(const char *str, ...)
+{
+	int			length;
+	va_list		args;
+
 	va_start(args, str);
-	while(*str)
+	length = 0;
+	while (*str)
 	{
-		if(*str == '%')
+		if (*str == '%')
 		{
-			if(*(str + 1) == 'c')
+			if (*(str + 1) == 'c')
 			{
 				ft_putchar_fd(va_arg(args, unsigned int), 1);
 			}
@@ -30,9 +37,10 @@ int ft_printf(const char *str, ...)
 		else
 		{
 			ft_putchar_fd(*str, 1);
+			length++;
 		}
 		str++;
 	}
 	va_end(args);
-	return (0);
+	return (length);
 }

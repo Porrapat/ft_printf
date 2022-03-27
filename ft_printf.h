@@ -10,8 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-int ft_printf(int count, ...);
-*/
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int ft_printf(const char *, ...);
+# include <stdarg.h>
+# include "libft.h"
+
+int		ft_printf(const char str*, ...);
+
+#endif
