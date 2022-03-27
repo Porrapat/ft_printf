@@ -12,9 +12,24 @@
 
 #include "ft_printf.h"
 
-static int	ft_printf_print_format(va_list args, const char *str)
+static int	ft_printf_print_format(va_list args, char flag)
 {
-	return (0);
+	int		length;
+	char	*str;
+
+	length = 0;
+	if (flag == 'c')
+	{
+		ft_putchar_fd(va_arg(args, unsigned int), 1);
+		length++;
+	}
+	else if (flag == 's')
+	{
+		str = va_arg(args, char *);
+		ft_putstr_fd(str, 1);
+		length += ft_strlen(str);
+	}
+	return (length);
 }
 
 int	ft_printf(const char *str, ...)
@@ -28,11 +43,7 @@ int	ft_printf(const char *str, ...)
 	{
 		if (*str == '%')
 		{
-			if (*(str + 1) == 'c')
-			{
-				ft_putchar_fd(va_arg(args, unsigned int), 1);
-				length++;
-			}
+			ft_printf_print_format(args, *(str + 1));
 			str++;
 		}
 		else
