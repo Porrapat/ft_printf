@@ -15,7 +15,30 @@
 
 int	main(void)
 {
-	ft_printf("%cx%cy%cz\n", 'a', 'b', 'c');
+	printf("-------- my ft_printf --------\n");
+	ft_printf("%c", '0');
+	ft_printf(" %c", '0' - 256);
+	ft_printf("%c ", '0' + 256);
+	ft_printf(" %c %c %c ", '0', 0, '1');
+	ft_printf(" %c %c %c ", ' ', ' ', ' ');
+	ft_printf(" %c %c %c ", '1', '2', '3');
+	ft_printf(" %c %c %c ", '2', '1', 0);
+	ft_printf(" %c %c %c ", 0, '1', '2');
+
+	printf("\n\n");
+
+	printf("-------- printf --------\n");
+	printf("%c", '0');
+	printf(" %c", '0' - 256);
+	printf("%c ", '0' + 256);
+	printf(" %c %c %c ", '0', 0, '1');
+	printf(" %c %c %c ", ' ', ' ', ' ');
+	printf(" %c %c %c ", '1', '2', '3');
+	printf(" %c %c %c ", '2', '1', 0);
+	printf(" %c %c %c ", 0, '1', '2');
+
+
+	// ft_printf("%cx%cy%cz\n", 'a', 'b', 'c');
 	// ft_printf("ababa\n", 4, 44, 444);
 	// ft_printf(1, 4);
 	// ft_printf(3, 4, 44, 444);
