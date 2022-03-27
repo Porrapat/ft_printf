@@ -31,6 +31,7 @@ int	ft_printf(const char *str, ...)
 			if (*(str + 1) == 'c')
 			{
 				ft_putchar_fd(va_arg(args, unsigned int), 1);
+				length++;
 			}
 			str++;
 		}
