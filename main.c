@@ -15,8 +15,10 @@
 
 int	main(void)
 {
+	ft_printf("%cx%cy%cz\n", 'a', 'b', 'c');
+	// ft_printf("ababa\n", 4, 44, 444);
 	// ft_printf(1, 4);
-	ft_printf(3, 4, 44, 444);
+	// ft_printf(3, 4, 44, 444);
 	// ft_printf(4, 4, 44, 444, 4444);
 	// ft_printf("Hello %c%s%%World 555+\n");
 	return (0);

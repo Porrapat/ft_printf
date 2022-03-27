@@ -13,13 +13,25 @@
 #include "libft.h"
 #include <stdarg.h>
 
-int	ft_printf(int count, ...)
+int ft_printf(const char *str, ...)
 {
 	va_list	args;
-	va_start(args, count);
-	for	(int i = 0; i < count; ++i) {
-		ft_putnbr_fd(va_arg(args, int), 1);
-		ft_putstr_fd("\n", 1);
+	va_start(args, str);
+	while(*str)
+	{
+		if(*str == '%')
+		{
+			if(*(str + 1) == 'c')
+			{
+				ft_putchar_fd(va_arg(args, unsigned int), 1);
+			}
+			str++;
+		}
+		else
+		{
+			ft_putchar_fd(*str, 1);
+		}
+		str++;
 	}
 	va_end(args);
 	return (0);
