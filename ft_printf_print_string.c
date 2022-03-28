@@ -23,3 +23,9 @@ int	ft_printf_print_string(char *str)
 	ft_putstr_fd(str, 1);
 	return (ft_strlen(str));
 }
+
+int	ft_printf_print_percent()
+{
+	ft_putchar_fd('%', 1);
+	return (1);
+}

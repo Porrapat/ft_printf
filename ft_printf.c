@@ -22,6 +22,8 @@ static int	ft_printf_print_format(va_list args, char flag)
 		length += ft_printf_print_char(va_arg(args, unsigned int));
 	else if (flag == 's')
 		length += ft_printf_print_string(va_arg(args, char *));
+	else if (flag == '%')
+		length += ft_printf_print_string(va_arg(args, char *));
 	return (length);
 }
 
