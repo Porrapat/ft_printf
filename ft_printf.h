@@ -18,4 +18,7 @@
 
 int		ft_printf(const char *str, ...);
 
+int		ft_printf_print_char(char c);
+int		ft_printf_print_string(char *str);
+
 #endif
