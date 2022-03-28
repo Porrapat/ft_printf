@@ -23,7 +23,7 @@ static int	ft_printf_print_format(va_list args, char flag)
 	else if (flag == 's')
 		length += ft_printf_print_string(va_arg(args, char *));
 	else if (flag == '%')
-		length += ft_printf_print_string(va_arg(args, char *));
+		length += ft_printf_print_percent();
 	return (length);
 }
 
@@ -38,7 +38,7 @@ int	ft_printf(const char *str, ...)
 	{
 		if (*str == '%')
 		{
-			ft_printf_print_format(args, *(str + 1));
+			length += ft_printf_print_format(args, *(str + 1));
 			str++;
 		}
 		else
