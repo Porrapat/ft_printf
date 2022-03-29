@@ -1,7 +1,6 @@
 
 Run Simple Test on here
 Write Main
-Then %d %i 
 Then %h %H
 Then %u 
 Then %p 

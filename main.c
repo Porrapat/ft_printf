@@ -15,13 +15,20 @@
 
 int	main(void)
 {
-	printf("%x\n", 15);
-	printf("%x\n", 16);
-	printf("%x\n", 17);
+	int a;
 
-	printf("%X\n", 15);
-	printf("%X\n", 16);
-	printf("%X\n", 17);
+	char *s;
+
+	printf("%p\n", &a);
+	printf("%p\n", s);
+	// printf("%x\n", 15);
+	// printf("%x\n", 16);
+	// printf("%x\n", 17);
+
+	// printf("%X\n", 15);
+	// printf("%X\n", 16);
+	// printf("%X\n", 17);
+
 	// ft_printf("%s", "Hello", "World", "ABCD");
 	// printf("-------- my ft_printf --------\n");
 

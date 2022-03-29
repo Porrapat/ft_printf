@@ -16,6 +16,17 @@
 # include <stdarg.h>
 # include "libft.h"
 
+/*
+typedef struct	
+{
+	flag
+	mode_minus
+	mode_0
+	mode xxx
+}
+
+*/
+
 int		ft_printf(const char *str, ...);
 
 int		ft_printf_print_percent(void);
