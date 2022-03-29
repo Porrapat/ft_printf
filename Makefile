@@ -2,7 +2,8 @@ all: libft
 	cp ./libft/libft.a libftprintf.a
 	gcc -c ft_printf.c -I./libft -L./libft -lft -o ft_printf.o
 	gcc -c ft_printf_print_string.c  -I./libft -L./libft -lft -o ft_printf_print_string.o
-	ar rcs libftprintf.a ft_printf.o ft_printf_print_string.o
+	gcc -c ft_printf_print_decimal.c  -I./libft -L./libft -lft -o ft_printf_print_decimal.o
+	ar rcs libftprintf.a ft_printf.o ft_printf_print_string.o ft_printf_print_decimal.o
 	gcc main.c -I./libft -L. -lftprintf
 
 run: all
@@ -17,6 +18,7 @@ all2: libft
 norminette:
 	norminette ft_printf.c
 	norminette ft_printf_print_string.c
+	norminette ft_printf_print_decimal.c
 	norminette ft_printf.h
 # norminette main.c
 

@@ -14,9 +14,17 @@
 
 int	ft_printf_print_decimal(int number)
 {
-	/*
-	ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
-	*/
-	return (0);
+	char	*str;
+	size_t	len;
+
+	ft_putnbr_fd(number, 1);
+	str = ft_itoa(number);
+	if (str)
+	{
+		len = ft_strlen(str);
+		free(str);
+	}
+	else
+		len = 0;
+	return (len);
 }

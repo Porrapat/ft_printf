@@ -20,7 +20,7 @@ int	ft_printf_print_char(char c)
 
 int	ft_printf_print_string(char *str)
 {
-	if(str == NULL)
+	if (str == NULL)
 	{
 		ft_putstr_fd("(null)", 1);
 		return (6);
@@ -29,7 +29,7 @@ int	ft_printf_print_string(char *str)
 	return (ft_strlen(str));
 }
 
-int	ft_printf_print_percent()
+int	ft_printf_print_percent(void)
 {
 	ft_putchar_fd('%', 1);
 	return (1);

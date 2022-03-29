@@ -18,10 +18,10 @@
 
 int		ft_printf(const char *str, ...);
 
-int		ft_printf_print_percent();
+int		ft_printf_print_percent(void);
 int		ft_printf_print_char(char c);
 int		ft_printf_print_string(char *str);
-// int		ft_printf_print_decimal(int number);
+int		ft_printf_print_decimal(int number);
 // int		ft_printf_print_hexadecimal(int number);
 
 #endif
