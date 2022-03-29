@@ -1,16 +1,12 @@
 
-
-Fix old repo use unsigned long for pointer
-
-Makefile do on Main
-
-Separete function main and ft_printf for test
-
-Get Libft In Here First
-
 Run Simple Test on here
 Write Main
-Test Only %c %s Only
 Then %d %i 
+Then %h %H
+Then %u 
+Then %p 
 
+
+ทวน pdf printf อีกสักรอบนึง
+man 3 printf ดูเรื่อง mode หรือ ทวนๆ ไปก่อน
 Write Data Structure And Learn It
