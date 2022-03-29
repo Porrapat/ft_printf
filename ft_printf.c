@@ -12,12 +12,7 @@
 
 #include "ft_printf.h"
 /*
-	else if (flag == 'h' || flag == 'H')
-		length += ft_printf_print_hexadecimal(va_arg(args, int));
-	else if (flag == 'u')
-		length += ft_printf_print_unsigned_decimal(va_arg(args, int));
-	else if (flag == 'p')
-		length += ft_printf_print_pointer(va_arg(args, int));
+
 */
 static int	ft_printf_print_format(va_list args, char flag)
 {
@@ -31,6 +26,12 @@ static int	ft_printf_print_format(va_list args, char flag)
 		length += ft_printf_print_string(va_arg(args, char *));
 	else if (flag == 'd' || flag == 'i')
 		length += ft_printf_print_decimal(va_arg(args, int));
+	else if (flag == 'x' || flag == 'X')
+		length += ft_printf_print_hexadecimal(va_arg(args, int), flag);
+	else if (flag == 'u')
+		length += ft_printf_print_unsigned(va_arg(args, unsigned int));
+	else if (flag == 'p')
+		length += ft_printf_print_pointer(va_arg(args, unsigned long));
 	else if (flag == '%')
 		length += ft_printf_print_percent();
 	return (length);

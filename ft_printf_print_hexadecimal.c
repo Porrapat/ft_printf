@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_printf_print_hexadecimal(int number)
+int	ft_printf_print_hexadecimal(int number, char flag)
 {
 	/*
 	ft_putstr_fd(str, 1);

@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_printf_print_pointer(int number)
+int	ft_printf_print_pointer(unsigned long number)
 {
 	/*
 	ft_putstr_fd(str, 1);

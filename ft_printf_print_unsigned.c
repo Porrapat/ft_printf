@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_printf_print_unsigned(int number)
+int	ft_printf_print_unsigned(unsigned int number)
 {
 	/*
 	ft_putstr_fd(str, 1);

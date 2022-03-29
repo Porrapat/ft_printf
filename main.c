@@ -15,7 +15,14 @@
 
 int	main(void)
 {
-	ft_printf("%s", "Hello", "World", "ABCD");
+	printf("%x\n", 15);
+	printf("%x\n", 16);
+	printf("%x\n", 17);
+
+	printf("%X\n", 15);
+	printf("%X\n", 16);
+	printf("%X\n", 17);
+	// ft_printf("%s", "Hello", "World", "ABCD");
 	// printf("-------- my ft_printf --------\n");
 
 	// ft_printf("%c", '0');
