@@ -11,9 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-/*
 
-*/
 static int	ft_printf_print_format(va_list args, char flag)
 {
 	int		length;
