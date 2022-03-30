@@ -15,8 +15,16 @@
 
 int	main(void)
 {
-	printf("%d\n", ft_printf("%x", 15));
+	int len;
+	ft_printf("%x\n", 9);
 	ft_printf("Hello\n");
-	printf("%d\n", ft_printf("%X", 255));
+	ft_printf("%x\n", 15);
+	ft_printf("Hello\n");
+	ft_printf("%x\n", 16);
+	ft_printf("Hello\n");
+	len = ft_printf("%x\n", -1);
+	printf("%d\n", len);
+	len = printf("%x\n", -1);
+	printf("%d\n", len);
 	return (0);
 }

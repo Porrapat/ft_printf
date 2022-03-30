@@ -25,7 +25,7 @@ static int	ft_printf_print_format(va_list args, char flag)
 	else if (flag == 'd' || flag == 'i')
 		length += ft_printf_print_decimal(va_arg(args, int));
 	else if (flag == 'x' || flag == 'X')
-		length += ft_printf_print_hexadecimal(va_arg(args, int), flag);
+		length += ft_printf_print_hexadecimal(va_arg(args, unsigned int), flag);
 	else if (flag == 'u')
 		length += ft_printf_print_unsigned(va_arg(args, unsigned int));
 	else if (flag == 'p')

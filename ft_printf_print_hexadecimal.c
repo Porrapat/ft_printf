@@ -12,9 +12,9 @@
 
 #include "ft_printf.h"
 
-static void print_hex_digit(int number, char flag)
+static int	print_hex_digit(unsigned int number, char flag)
 {
-	if(number < 10) 
+	if (number < 10)
 	{
 		ft_putchar_fd('0' + number, 1);
 	}
@@ -25,61 +25,33 @@ static void print_hex_digit(int number, char flag)
 		else
 			ft_putchar_fd('A' - 10 + number, 1);
 	}
+	return (1);
 }
 
-int ft_printf_hex_recursive(int number, char flag)
+static int	ft_printf_hex_recursive(unsigned int number, char flag)
 {
-	int length;
-	int remainder;
+	int	length;
+	int	remainder;
 
 	length = 0;
 	if (number > 0)
 	{
 		remainder = 0;
 		remainder = number % 16;
-		print_hex_digit(remainder, flag);
-		length += 1;
 		length += ft_printf_hex_recursive(number / 16, flag);
+		length += print_hex_digit(remainder, flag);
 	}
 	return (length);
 }
 
-int	ft_printf_print_hexadecimal(int number, char flag)
+int	ft_printf_print_hexadecimal(unsigned int number, char flag)
 {
-	int length;
+	int	length;
 
 	length = 0;
-	length = ft_printf_hex_recursive(number, flag);
+	if (number == 0)
+		length += print_hex_digit(0, flag);
+	else
+		length = ft_printf_hex_recursive(number, flag);
 	return (length);
 }
-
-	// number = 255;
-
-	// 255 % 16 = 15
-	// 255 / 16
-
-	// while (number > 0)
-	// {
-		
-	// 	number /= 16;
-	// }
-	// num = 15;
-	// number = 15;
-	// if (flag = 'x')
-	// {
-	// 	ft_putchar_fd('0' + number , 1);
-	// }
-	// else if (flag = 'X')
-	// {
-
-	// }
-
-	// int	i;
-
-	// i = 0;
-	// while(i < 16)
-	// {
-	// 	print_hex_digit(i, flag);
-	// 	ft_putchar_fd('\n', 1);
-	// 	i++;
-	// }
