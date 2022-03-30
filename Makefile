@@ -42,6 +42,8 @@ norminette:
 	norminette ft_printf_print_percent.c
 	norminette ft_printf_print_decimal.c
 	norminette ft_printf_print_hexadecimal.c
+	norminette ft_printf_print_pointer.c
+	norminette ft_printf_print_unsigned.c
 	norminette ft_printf.h
 # norminette main.c
 

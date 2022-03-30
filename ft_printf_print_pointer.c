@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_print_unsigned.c                         :+:      :+:    :+:   */
+/*   ft_printf_print_pointer.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppetchda <ppetchda@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                              +#+#+#+#+#+     +#+           */
@@ -47,16 +47,6 @@ int	ft_printf_print_pointer(unsigned long number)
 		length += print_unsigned_long_hex_digit(0);
 	else
 		length = ft_printf_unsigned_long_hex_recursive(number);
-
 	length += 2;
 	return (length);
 }
-
-/*
-int	ft_printf_print_pointer(unsigned long number)
-{
-	ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
-	return (0);
-}
-*/
