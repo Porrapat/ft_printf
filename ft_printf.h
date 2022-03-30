@@ -13,19 +13,8 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "libft/libft.h"
 # include <stdarg.h>
-
-/*
-typedef struct	
-{
-	flag
-	mode_minus
-	mode_0
-	mode xxx
-}
-
-*/
+# include "libft.h"
 
 int		ft_printf(const char *str, ...);
 
