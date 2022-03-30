@@ -45,8 +45,7 @@ norminette:
 	norminette ft_printf_print_pointer.c
 	norminette ft_printf_print_unsigned.c
 	norminette ft_printf.h
-# norminette main.c
-
+	
 clean:
 	make -C ./libft clean
 	make -C ./libft fclean
