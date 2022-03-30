@@ -27,13 +27,42 @@ static void print_hex_digit(int number, char flag)
 	}
 }
 
+int ft_printf_hex_recursive(int number, char flag)
+{
+	int length;
+	int remainder;
+
+	length = 0;
+	if (number > 0)
+	{
+		remainder = 0;
+		remainder = number % 16;
+		print_hex_digit(remainder, flag);
+		length += 1;
+		length += ft_printf_hex_recursive(number / 16, flag);
+	}
+	return (length);
+}
+
 int	ft_printf_print_hexadecimal(int number, char flag)
 {
-	/*
-	ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
-	*/
+	int length;
 
+	length = 0;
+	length = ft_printf_hex_recursive(number, flag);
+	return (length);
+}
+
+	// number = 255;
+
+	// 255 % 16 = 15
+	// 255 / 16
+
+	// while (number > 0)
+	// {
+		
+	// 	number /= 16;
+	// }
 	// num = 15;
 	// number = 15;
 	// if (flag = 'x')
@@ -45,15 +74,12 @@ int	ft_printf_print_hexadecimal(int number, char flag)
 
 	// }
 
-	int	i;
+	// int	i;
 
-	i = 0;
-	while(i < 16)
-	{
-		print_hex_digit(i, flag);
-		ft_putchar_fd('\n', 1);
-		i++;
-	}
-
-	return (0);
-}
+	// i = 0;
+	// while(i < 16)
+	// {
+	// 	print_hex_digit(i, flag);
+	// 	ft_putchar_fd('\n', 1);
+	// 	i++;
+	// }
