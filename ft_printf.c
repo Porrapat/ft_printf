@@ -12,25 +12,25 @@
 
 #include "ft_printf.h"
 
-static int	ft_printf_print_format(va_list args, char flag)
+static int	ft_printf_print_format(va_list args, t_type my_type)
 {
 	int		length;
 	char	*str;
 
 	length = 0;
-	if (flag == 'c')
+	if (my_type.flag == 'c')
 		length += ft_printf_print_char(va_arg(args, unsigned int));
-	else if (flag == 's')
+	else if (my_type.flag == 's')
 		length += ft_printf_print_string(va_arg(args, char *));
-	else if (flag == 'd' || flag == 'i')
+	else if (my_type.flag == 'd' || my_type.flag == 'i')
 		length += ft_printf_print_decimal(va_arg(args, int));
-	else if (flag == 'x' || flag == 'X')
-		length += ft_printf_print_hexadecimal(va_arg(args, unsigned int), flag);
-	else if (flag == 'u')
+	else if (my_type.flag == 'x' || my_type.flag == 'X')
+		length += ft_printf_print_hexadecimal(va_arg(args, unsigned int), my_type.flag);
+	else if (my_type.flag == 'u')
 		length += ft_printf_print_unsigned(va_arg(args, unsigned int));
-	else if (flag == 'p')
+	else if (my_type.flag == 'p')
 		length += ft_printf_print_pointer(va_arg(args, unsigned long));
-	else if (flag == '%')
+	else if (my_type.flag == '%')
 		length += ft_printf_print_percent();
 	return (length);
 }
@@ -39,6 +39,7 @@ int	ft_printf(const char *str, ...)
 {
 	int			length;
 	va_list		args;
+	t_type		my_type;
 
 	va_start(args, str);
 	length = 0;
@@ -46,7 +47,8 @@ int	ft_printf(const char *str, ...)
 	{
 		if (*str == '%')
 		{
-			length += ft_printf_print_format(args, *(str + 1));
+			my_type.flag = *(str + 1);
+			length += ft_printf_print_format(args, my_type);
 			str++;
 		}
 		else

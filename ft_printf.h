@@ -14,7 +14,13 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
+# include <stdbool.h>
 # include "libft.h"
+
+typedef struct s_type
+{
+	char	flag;
+}	t_type;
 
 int		ft_printf(const char *str, ...);
 
