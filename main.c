@@ -15,12 +15,22 @@
 
 int	main(void)
 {
-	int a;
 
-	char *s;
+	ft_printf("%x", 123);
+	ft_printf("Hello\n");
+	ft_printf("%X", 123);
+	// int a;
 
-	printf("%p\n", &a);
-	printf("%p\n", s);
+	// char *s;
+
+	// int len1;
+	// int len2;
+
+	// len1 = printf("%p\n", &a);
+	// len2 = printf("%p\n", s);
+
+	// printf("%d, %d\n", len1, len2);
+
 	// printf("%x\n", 15);
 	// printf("%x\n", 16);
 	// printf("%x\n", 17);
