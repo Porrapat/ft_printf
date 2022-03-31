@@ -15,7 +15,6 @@
 static int	ft_printf_print_format(va_list args, t_type my_type)
 {
 	int		length;
-	char	*str;
 
 	length = 0;
 	if (my_type.flag == 'c')
@@ -35,6 +34,15 @@ static int	ft_printf_print_format(va_list args, t_type my_type)
 	return (length);
 }
 
+static int	ft_printf_parse_format(va_list args, t_type my_type)
+{
+	int		length;
+
+	length = 0;
+	length = ft_printf_print_format(args, my_type);
+	return (length);
+}
+
 int	ft_printf(const char *str, ...)
 {
 	int			length;
@@ -48,7 +56,7 @@ int	ft_printf(const char *str, ...)
 		if (*str == '%')
 		{
 			my_type.flag = *(str + 1);
-			length += ft_printf_print_format(args, my_type);
+			length += ft_printf_parse_format(args, my_type);
 			str++;
 		}
 		else
