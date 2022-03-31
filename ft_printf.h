@@ -28,7 +28,7 @@ int		ft_printf_print_percent(void);
 int		ft_printf_print_char(char c);
 int		ft_printf_print_string(char *str);
 int		ft_printf_print_decimal(int number);
-int		ft_printf_print_hexadecimal(unsigned int number, char flag);
+int		ft_printf_print_hex(unsigned int number, char flag);
 int		ft_printf_print_unsigned(unsigned int number);
 int		ft_printf_print_pointer(unsigned long number);
 

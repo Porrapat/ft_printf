@@ -24,7 +24,7 @@ static int	ft_printf_print_format(va_list args, t_type my_type)
 	else if (my_type.flag == 'd' || my_type.flag == 'i')
 		length += ft_printf_print_decimal(va_arg(args, int));
 	else if (my_type.flag == 'x' || my_type.flag == 'X')
-		length += ft_printf_print_hexadecimal(va_arg(args, unsigned int), my_type.flag);
+		length += ft_printf_print_hex(va_arg(args, unsigned int), my_type.flag);
 	else if (my_type.flag == 'u')
 		length += ft_printf_print_unsigned(va_arg(args, unsigned int));
 	else if (my_type.flag == 'p')

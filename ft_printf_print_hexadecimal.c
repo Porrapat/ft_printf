@@ -44,7 +44,7 @@ static int	ft_printf_hex_recursive(unsigned int number, char flag)
 	return (length);
 }
 
-int	ft_printf_print_hexadecimal(unsigned int number, char flag)
+int	ft_printf_print_hex(unsigned int number, char flag)
 {
 	int	length;
 
