@@ -42,11 +42,20 @@ int	ft_printf_print_pointer(unsigned long number)
 	int	length;
 
 	length = 0;
-	ft_putstr_fd("0x", 1);
-	if (number == 0)
-		length += print_unsigned_long_hex_digit(0);
+
+	if (!number)
+		if (IS_LINUX)
+			length += ft_printf_print_string("(nil)");
+		else
+			length += ft_printf_print_string("0x0");
 	else
-		length = ft_printf_unsigned_long_hex_recursive(number);
-	length += 2;
+	{
+		ft_putstr_fd("0x", 1);
+		if (number == 0)
+			length += print_unsigned_long_hex_digit(0);
+		else
+			length = ft_printf_unsigned_long_hex_recursive(number);
+		length += 2;
+	}
 	return (length);
 }

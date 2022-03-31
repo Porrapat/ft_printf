@@ -22,6 +22,12 @@ typedef struct s_type
 	char	flag;
 }	t_type;
 
+# ifdef __linux__
+#  define IS_LINUX 1
+# else
+#  define IS_LINUX 0
+# endif
+
 int		ft_printf(const char *str, ...);
 
 int		ft_printf_print_percent(void);
