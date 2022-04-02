@@ -14,7 +14,8 @@
 
 static unsigned int	get_minus_and_absnumber(int number)
 {
-	unsigned int numberabs;
+	unsigned int	numberabs;
+
 	if ((unsigned int)number == 0x80000000)
 		numberabs = 0x80000000;
 	else if (number < 0)
