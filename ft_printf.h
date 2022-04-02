@@ -19,9 +19,9 @@
 
 typedef struct s_type
 {
-	char	mode_left;
-	char	mode_0;
-	char	mode_dot;
+	bool	mode_left;
+	bool	mode_0;
+	bool	mode_dot;
 	char	mode_lead;
 	int		width;
 	char	flag;

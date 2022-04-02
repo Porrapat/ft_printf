@@ -38,11 +38,11 @@ static int	ft_printf_parse_format(va_list args, const char **format)
 {
 	t_type	my_type;
 
-	my_type.mode_left = 0;
-	my_type.mode_0 = 0;
-	my_type.mode_dot = 0;
-	my_type.mode_lead = 0;
-	my_type.width = 0;
+	my_type.mode_left = false;
+	my_type.mode_0 = false;
+	my_type.mode_dot = false;
+	my_type.mode_lead = false;
+	my_type.width = false;
 	(*format)++;
 	while (ft_char_in_set(**format, "# +,-0."))
 	{
