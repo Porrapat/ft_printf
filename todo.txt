@@ -1,4 +1,0 @@
-
-Run Simple Test on here
-
-man 3 printf ดูเรื่อง mode หรือ ทวนๆ ไปก่อน

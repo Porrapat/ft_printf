@@ -52,6 +52,5 @@ char	*ft_addlead(char *str, int num, t_type my_type);
 int		ft_printformat(char *str, int slen, int num, t_type my_type);
 
 char	*ft_unsigned_itoa(unsigned int n);
-char	*ft_hex_itoa(unsigned long n, char flag);
 
 #endif

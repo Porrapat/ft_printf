@@ -19,7 +19,7 @@ SRCS = ft_printf.c \
 		ft_printf_print_unsigned.c \
 		ft_printf_print_pointer.c \
 		ft_printf_utils.c \
-		ft_printf_utils_2.c 
+		ft_printf_utils_2.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -61,36 +61,3 @@ fcleanlibft:
 	make -C ./libft fclean
 
 .PHONY: libft all norminette clean fclean re bonus rebonus debug run
-
-norminette:
-	norminette ft_printf.c
-	norminette ft_printf_print_char.c
-	norminette ft_printf_print_string.c
-	norminette ft_printf_print_percent.c
-	norminette ft_printf_print_decimal.c
-	norminette ft_printf_print_hexadecimal.c
-	norminette ft_printf_print_pointer.c
-	norminette ft_printf_print_unsigned.c
-	norminette ft_printf_utils.c
-	norminette ft_printf_utils_2.c
-	norminette ft_printf.h
-
-debug: libft $(SRCS)
-	gcc -g -c ft_printf.c -I./libft -L./libft -lft -o ft_printf.o
-	gcc -g -c ft_printf_print_char.c -I./libft -L./libft -lft -o ft_printf_print_char.o
-	gcc -g -c ft_printf_print_string.c  -I./libft -L./libft -lft -o ft_printf_print_string.o
-	gcc -g -c ft_printf_print_percent.c  -I./libft -L./libft -lft -o ft_printf_print_percent.o
-	gcc -g -c ft_printf_print_decimal.c  -I./libft -L./libft -lft -o ft_printf_print_decimal.o
-	gcc -g -c ft_printf_print_hexadecimal.c  -I./libft -L./libft -lft -o ft_printf_print_hexadecimal.o
-	gcc -g -c ft_printf_print_unsigned.c  -I./libft -L./libft -lft -o ft_printf_print_unsigned.o
-	gcc -g -c ft_printf_print_pointer.c  -I./libft -L./libft -lft -o ft_printf_print_pointer.o
-	gcc -g -c ft_printf_utils.c  -I./libft -L./libft -lft -o ft_printf_utils.o
-	gcc -g -c ft_printf_utils_2.c  -I./libft -L./libft -lft -o ft_printf_utils_2.o
-	gcc -g ft_printf.o ft_printf_print_char.o ft_printf_print_string.o \
-		ft_printf_print_percent.o ft_printf_print_decimal.o \
-		ft_printf_print_hexadecimal.o ft_printf_print_unsigned.o \
-		ft_printf_print_pointer.o ft_printf_utils.o ft_printf_utils_2.o \
-		main.c -I./libft -L./libft -lft
-
-run: all
-	./a.out

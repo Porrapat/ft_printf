@@ -12,27 +12,16 @@
 
 #include "ft_printf.h"
 
-static bool	get_minus_and_absnumber(int number, unsigned int *numberabs)
+static unsigned int	get_minus_and_absnumber(int number)
 {
-	bool	minus;
-
-	minus = false;
+	unsigned int numberabs;
 	if ((unsigned int)number == 0x80000000)
-	{
-		minus = true;
-		*numberabs = 0x80000000;
-	}
+		numberabs = 0x80000000;
 	else if (number < 0)
-	{
-		minus = true;
-		*numberabs = -number;
-	}
+		numberabs = -number;
 	else
-	{
-		minus = false;
-		*numberabs = number;
-	}
-	return (minus);
+		numberabs = number;
+	return (numberabs);
 }
 
 char	ft_todigit(int val)
@@ -66,7 +55,7 @@ int	ft_printf_print_decimal(int number, t_type my_type)
 	size_t			templen;
 	unsigned int	numberabs;
 
-	get_minus_and_absnumber(number, &numberabs);
+	numberabs = get_minus_and_absnumber(number);
 	str = ft_unsigned_to_str_buff(&buff[31], numberabs);
 	if (str)
 	{
