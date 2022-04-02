@@ -17,7 +17,9 @@ SRCS = ft_printf.c \
 		ft_printf_print_decimal.c \
 		ft_printf_print_hexadecimal.c \
 		ft_printf_print_unsigned.c \
-		ft_printf_print_pointer.c 
+		ft_printf_print_pointer.c \
+		ft_printf_utils.c \
+		ft_printf_utils_2.c 
 
 OBJS = $(SRCS:.c=.o)
 
@@ -69,21 +71,25 @@ norminette:
 	norminette ft_printf_print_hexadecimal.c
 	norminette ft_printf_print_pointer.c
 	norminette ft_printf_print_unsigned.c
+	norminette ft_printf_utils.c
+	norminette ft_printf_utils_2.c
 	norminette ft_printf.h
 
 debug: libft $(SRCS)
-	gcc -g -c -Wall -Wextra -Werror ft_printf.c -I./libft -L./libft -lft -o ft_printf.o
-	gcc -g -c -Wall -Wextra -Werror ft_printf_print_char.c  -I./libft -L./libft -lft -o ft_printf_print_char.o
-	gcc -g -c -Wall -Wextra -Werror ft_printf_print_string.c  -I./libft -L./libft -lft -o ft_printf_print_string.o
-	gcc -g -c -Wall -Wextra -Werror ft_printf_print_percent.c  -I./libft -L./libft -lft -o ft_printf_print_percent.o
-	gcc -g -c -Wall -Wextra -Werror ft_printf_print_decimal.c  -I./libft -L./libft -lft -o ft_printf_print_decimal.o
-	gcc -g -c -Wall -Wextra -Werror ft_printf_print_hexadecimal.c  -I./libft -L./libft -lft -o ft_printf_print_hexadecimal.o
-	gcc -g -c -Wall -Wextra -Werror ft_printf_print_unsigned.c  -I./libft -L./libft -lft -o ft_printf_print_unsigned.o
-	gcc -g -c -Wall -Wextra -Werror ft_printf_print_pointer.c  -I./libft -L./libft -lft -o ft_printf_print_pointer.o
-	gcc -g -Wall -Wextra -Werror ft_printf.o ft_printf_print_char.o ft_printf_print_string.o \
+	gcc -g -c ft_printf.c -I./libft -L./libft -lft -o ft_printf.o
+	gcc -g -c ft_printf_print_char.c -I./libft -L./libft -lft -o ft_printf_print_char.o
+	gcc -g -c ft_printf_print_string.c  -I./libft -L./libft -lft -o ft_printf_print_string.o
+	gcc -g -c ft_printf_print_percent.c  -I./libft -L./libft -lft -o ft_printf_print_percent.o
+	gcc -g -c ft_printf_print_decimal.c  -I./libft -L./libft -lft -o ft_printf_print_decimal.o
+	gcc -g -c ft_printf_print_hexadecimal.c  -I./libft -L./libft -lft -o ft_printf_print_hexadecimal.o
+	gcc -g -c ft_printf_print_unsigned.c  -I./libft -L./libft -lft -o ft_printf_print_unsigned.o
+	gcc -g -c ft_printf_print_pointer.c  -I./libft -L./libft -lft -o ft_printf_print_pointer.o
+	gcc -g -c ft_printf_utils.c  -I./libft -L./libft -lft -o ft_printf_utils.o
+	gcc -g -c ft_printf_utils_2.c  -I./libft -L./libft -lft -o ft_printf_utils_2.o
+	gcc -g ft_printf.o ft_printf_print_char.o ft_printf_print_string.o \
 		ft_printf_print_percent.o ft_printf_print_decimal.o \
 		ft_printf_print_hexadecimal.o ft_printf_print_unsigned.o \
-		ft_printf_print_pointer.o \
+		ft_printf_print_pointer.o ft_printf_utils.o ft_printf_utils_2.o \
 		main.c -I./libft -L./libft -lft
 
 run: all

@@ -12,46 +12,46 @@
 
 #include "ft_printf.h"
 
-static int	print_hex_digit(unsigned int number, char flag)
+char	ft_to_hex_digit(int val, bool isUpper)
 {
-	if (number < 10)
-	{
-		ft_putchar_fd('0' + number, 1);
-	}
-	else
-	{
-		if (flag == 'x')
-			ft_putchar_fd('a' - 10 + number, 1);
-		else
-			ft_putchar_fd('A' - 10 + number, 1);
-	}
-	return (1);
+	if (val <= 9)
+		return (val + '0');
+	if (isUpper)
+		return (val - 10 + 'A' );
+	return (val - 10 + 'a' );
 }
 
-static int	ft_printf_hex_recursive(unsigned int number, char flag)
+char	*ft_to_str_hex_buff(char *pendbuff, unsigned long num, bool isUpper)
 {
-	int	length;
-	int	remainder;
-
-	length = 0;
-	if (number > 0)
+	*pendbuff = '\0';
+	if (!num)
 	{
-		remainder = 0;
-		remainder = number % 16;
-		length += ft_printf_hex_recursive(number / 16, flag);
-		length += print_hex_digit(remainder, flag);
+		*--pendbuff = '0';
+		return (pendbuff);
 	}
-	return (length);
+	while (num > 0)
+	{
+		*--pendbuff = ft_to_hex_digit(num % 16, isUpper);
+		num /= 16;
+	}
+	return (pendbuff);
 }
 
-int	ft_printf_print_hex(unsigned int number, char flag)
+int	ft_printf_print_hex(unsigned long number, t_type my_type)
 {
-	int	length;
+	char	buff[32];
+	char	*str;
+	size_t	len;
+	size_t	templen;
 
-	length = 0;
-	if (number == 0)
-		length += print_hex_digit(0, flag);
+	str = ft_to_str_hex_buff(&buff[31], number, my_type.flag < 'a');
+	if (str)
+	{
+		str = ft_addlead(str, number != 0, my_type);
+		templen = ft_strlen(str);
+		len = ft_printformat(str, templen, number != 0, my_type);
+	}
 	else
-		length = ft_printf_hex_recursive(number, flag);
-	return (length);
+		len = 0;
+	return (len);
 }

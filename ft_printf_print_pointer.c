@@ -12,50 +12,30 @@
 
 #include "ft_printf.h"
 
-static int	print_unsigned_long_hex_digit(unsigned long number)
+static size_t	printf_null_pointer(t_type my_type)
 {
-	if (number < 10)
-		ft_putchar_fd('0' + number, 1);
+	size_t	len;
+
+	len = 0;
+	if (IS_LINUX)
+		len += ft_printf_print_string("(nil)", my_type);
 	else
-		ft_putchar_fd('a' - 10 + number, 1);
-	return (1);
+		len += ft_printf_print_string("0x0", my_type);
+	return (len);
 }
 
-static int	ft_printf_unsigned_long_hex_recursive(unsigned long number)
+int	ft_printf_print_pointer(unsigned long number, t_type my_type)
 {
-	int	length;
-	int	remainder;
+	size_t	len;
 
-	length = 0;
-	if (number > 0)
-	{
-		remainder = 0;
-		remainder = number % 16;
-		length += ft_printf_unsigned_long_hex_recursive(number / 16);
-		length += print_unsigned_long_hex_digit(remainder);
-	}
-	return (length);
-}
-
-int	ft_printf_print_pointer(unsigned long number)
-{
-	int	length;
-
-	length = 0;
-
+	len = 0;
 	if (!number)
-		if (IS_LINUX)
-			length += ft_printf_print_string("(nil)");
-		else
-			length += ft_printf_print_string("0x0");
+		len = printf_null_pointer(my_type);
 	else
 	{
-		ft_putstr_fd("0x", 1);
-		if (number == 0)
-			length += print_unsigned_long_hex_digit(0);
-		else
-			length = ft_printf_unsigned_long_hex_recursive(number);
-		length += 2;
+		my_type.mode_lead = '#';
+		my_type.flag = 'x';
+		len = ft_printf_print_hex(number, my_type);
 	}
-	return (length);
+	return (len);
 }

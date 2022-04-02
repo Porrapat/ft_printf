@@ -77,25 +77,18 @@ char	*ft_unsigned_itoa(unsigned int n)
 	return (rtn);
 }
 
-static void	ft_put_unsigned_nbr_fd(unsigned int n, int fd)
-{
-	if (n > 9)
-	{
-		ft_put_unsigned_nbr_fd(n / 10, fd);
-	}
-	ft_putchar_fd(48 + n % 10, fd);
-}
-
-int	ft_printf_print_unsigned(unsigned int number)
+int	ft_printf_print_unsigned(unsigned int number, t_type my_type)
 {
 	char	*str;
 	size_t	len;
+	size_t	templen;
 
-	ft_put_unsigned_nbr_fd(number, 1);
 	str = ft_unsigned_itoa(number);
 	if (str)
 	{
-		len = ft_strlen(str);
+		str = ft_addlead(str, number != 0, my_type);
+		templen = ft_strlen(str);
+		len = ft_printformat(str, templen, number != 0, my_type);
 		free(str);
 	}
 	else
